@@ -1,0 +1,18 @@
+
+
+        // Debugging code
+        for(int x = 0; x < grid.GetLength(0); x++)
+        {
+            for(int y = 0; y < grid.GetLength(1); y++)
+            {
+                Debug.Log(grid[x,y].ToString());
+                Vector3 x_position = new Vector3(position.x+1, position.y);
+                Vector3 y_position = new Vector3(position.x, position.y+1);
+                debugTextArray[x,y] = Utils.CreateWorldText(grid[x,y]?.ToString(), null, GetWorldPosition(x,y) + new Vector3(cellSize, cellSize) *0.5f, 20, Color.white, TextAnchor.MiddleCenter);
+                Debug.DrawLine(position,y_position, Color.white, 100.0f);
+                Debug.DrawLine(position,x_position, Color.white, 100.0f);
+            }
+        }
+        Debug.DrawLine(GetWorldPosition(0, height), GetWorldPosition(width,height), Color.white, 100.0f);
+        Debug.DrawLine(GetWorldPosition(width, 0), GetWorldPosition(width,height), Color.white, 100.0f);
+        
